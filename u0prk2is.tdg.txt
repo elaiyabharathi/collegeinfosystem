@@ -1,0 +1,194 @@
+﻿
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	new file:   _sfpg_data/info/1.jpg.sfpg
+#	new file:   _sfpg_data/info/_info.sfpg
+#	new file:   _sfpg_data/info/application/views/images/1.jpg.sfpg
+#	new file:   _sfpg_data/thumb/1.jpg
+#	new file:   _sfpg_data/thumb/application/views/images/1.jpg
+#	modified:   application/config/autoload.php
+#	new file:   application/controllers/gallery.php
+#	new file:   application/controllers/upload.php
+#	new file:   application/models/gallery_model.php
+#	new file:   application/views/classic-demo.html
+#	modified:   application/views/clubeditprofile.php
+#	new file:   application/views/clubgal.php
+#	new file:   application/views/clubpic.php
+#	new file:   application/views/folder.php
+#	new file:   application/views/folder1.php
+#	new file:   application/views/gal1.html
+#	new file:   application/views/gal2.html
+#	new file:   application/views/gal3.html
+#	new file:   application/views/gal3.php
+#	new file:   application/views/gallery.php
+#	new file:   application/views/images/1.jpg
+#	new file:   application/views/images/1208530_564648083583491_213829018_n.jpg
+#	new file:   application/views/images/1425634_441493879285537_142624830_n.jpg
+#	new file:   application/views/images/1450133_219279028254438_1696639686_n.jpg
+#	new file:   application/views/images/2.jpg
+#	new file:   application/views/images/2_pongal-wallpaper.jpg
+#	new file:   application/views/images/3.jpg
+#	new file:   application/views/images/4.jpg
+#	new file:   application/views/images/541068_4100140002074_1404419617_n.jpg
+#	new file:   application/views/images/561628_329430727195768_996618215_n.jpg
+#	new file:   application/views/images/6.jpg
+#	new file:   application/views/images/7.jpg
+#	new file:   application/views/images/988337_442843832495013_340334767_n.jpg
+#	new file:   application/views/images/995591_219246978257643_888795157_n.jpg
+#	new file:   application/views/images/Capture1.PNG
+#	new file:   application/views/images/IMG_20130709_191912.jpg
+#	new file:   application/views/images/IMG_20130709_194506.jpg
+#	new file:   application/views/images/Pongal_Banner.jpg
+#	new file:   application/views/images/free-christmas-wall-paper-1.jpg
+#	new file:   application/views/images/free-christmas-wall-paper-11.jpg
+#	new file:   application/views/images/k!.jpg
+#	new file:   application/views/light.html
+#	new file:   application/views/light.php
+#	modified:   application/views/newclubdetails.php
+#	new file:   application/views/picture.php
+#	new file:   application/views/sam.php
+#	new file:   application/views/sfpg_test.php
+#	new file:   application/views/singlepagephpgallery.php
+#	new file:   application/views/te.php
+#	new file:   application/views/upload_form.php
+#	new file:   application/views/upload_success.php
+#	new file:   application/views/upload_view.php
+#	modified:   assets/css/jquery.timepicker.css
+#	modified:   assets/images/Img.png
+#	modified:   "assets/images/SQL to MongoDB Mapping Chart \342\200\224 MongoDB Manual 2.4.8.htm"
+#	modified:   "assets/images/SQL to MongoDB Mapping Chart \342\200\224 MongoDB Manual 2.4.8_files/a7n.js"
+#	modified:   "assets/images/SQL to MongoDB Mapping Chart \342\200\224 MongoDB Manual 2.4.8_files/analytics.js"
+#	modified:   "assets/images/SQL to MongoDB Mapping Chart \342\200\224 MongoDB Manual 2.4.8_files/bootstrap-custom.css"
+#	modified:   "assets/images/SQL to MongoDB Mapping Chart \342\200\224 MongoDB Manual 2.4.8_files/bootstrap.js"
+#	modified:   "assets/images/SQL to MongoDB Mapping Chart \342\200\224 MongoDB Manual 2.4.8_files/cse.js"
+#	modified:   "assets/images/SQL to MongoDB Mapping Chart \342\200\224 MongoDB Manual 2.4.8_files/css"
+#	modified:   "assets/images/SQL to MongoDB Mapping Chart \342\200\224 MongoDB Manual 2.4.8_files/default+en.I.js"
+#	modified:   "assets/images/SQL to MongoDB Mapping Chart \342\200\224 MongoDB Manual 2.4.8_files/default+en.css"
+#	modified:   "assets/images/SQL to MongoDB Mapping Chart \342\200\224 MongoDB Manual 2.4.8_files/default.css"
+#	modified:   "assets/images/SQL to MongoDB Mapping Chart \342\200\224 MongoDB Manual 2.4.8_files/doctools.js"
+#	modified:   "assets/images/SQL to MongoDB Mapping Chart \342\200\224 MongoDB Manual 2.4.8_files/ga.js"
+#	modified:   "assets/images/SQL to MongoDB Mapping Chart \342\200\224 MongoDB Manual 2.4.8_files/gtm.js"
+#	modified:   "assets/images/SQL to MongoDB Mapping Chart \342\200\224 MongoDB Manual 2.4.8_files/icomoon.css"
+#	modified:   "assets/images/SQL to MongoDB Mapping Chart \342\200\224 MongoDB Manual 2.4.8_files/inpage_linkid.js"
+#	modified:   "assets/images/SQL to MongoDB Mapping Chart \342\200\224 MongoDB Manual 2.4.8_files/jquery-latest.min.js"
+#	modified:   "assets/images/SQL to MongoDB Mapping Chart \342\200\224 MongoDB Manual 2.4.8_files/jquery.js"
+#	modified:   "assets/images/SQL to MongoDB Mapping Chart \342\200\224 MongoDB Manual 2.4.8_files/jquery.tipsy.js"
+#	modified:   "assets/images/SQL to MongoDB Mapping Chart \342\200\224 MongoDB Manual 2.4.8_files/jsapi"
+#	modified:   "assets/images/SQL to MongoDB Mapping Chart \342\200\224 MongoDB Manual 2.4.8_files/logo-mongodb-header.png"
+#	modified:   "assets/images/SQL to MongoDB Mapping Chart \342\200\224 MongoDB Manual 2.4.8_files/mongodb-docs.css"
+#	modified:   "assets/images/SQL to MongoDB Mapping Chart \342\200\224 MongoDB Manual 2.4.8_files/munchkin.js"
+#	modified:   "assets/images/SQL to MongoDB Mapping Chart \342\200\224 MongoDB Manual 2.4.8_files/pygments.css"
+#	modified:   "assets/images/SQL to MongoDB Mapping Chart \342\200\224 MongoDB Manual 2.4.8_files/search.I.js"
+#	modified:   "assets/images/SQL to MongoDB Mapping Chart \342\200\224 MongoDB Manual 2.4.8_files/search_box_icon.png"
+#	modified:   "assets/images/SQL to MongoDB Mapping Chart \342\200\224 MongoDB Manual 2.4.8_files/small-logo.png"
+#	modified:   "assets/images/SQL to MongoDB Mapping Chart \342\200\224 MongoDB Manual 2.4.8_files/tipsy.css"
+#	modified:   "assets/images/SQL to MongoDB Mapping Chart \342\200\224 MongoDB Manual 2.4.8_files/underscore.js"
+#	modified:   assets/images/back.png
+#	modified:   assets/images/bg.gif
+#	modified:   assets/images/img.jpg
+#	modified:   assets/images/img/3d.jpg
+#	modified:   assets/images/img/ajax-loader.gif
+#	modified:   assets/images/img/birds.jpg
+#	modified:   assets/images/img/iceage.jpg
+#	modified:   assets/images/img/journalism.jpg
+#	modified:   assets/images/img/k!.jpg
+#	modified:   assets/images/img/k2.png
+#	modified:   assets/images/img/livecoding.jpg
+#	modified:   assets/images/img/up.jpg
+#	modified:   assets/images/kuruk.jpg
+#	modified:   assets/images/macaulay_culkin1.jpg
+#	modified:   assets/images/robot.jpg
+#	modified:   assets/images/setting.png
+#	modified:   assets/images/xxx.jpg
+#	modified:   assets/images/xyz.jpg
+#	new file:   assets/js/classic-loader.gif
+#	new file:   assets/js/classic-map.png
+#	new file:   assets/js/galleria-1.3.3.js
+#	new file:   assets/js/galleria-1.3.3.min.js
+#	new file:   assets/js/galleria-1.3.3/galleria/LICENSE
+#	new file:   assets/js/galleria-1.3.3/galleria/galleria-1.3.3.js
+#	new file:   assets/js/galleria-1.3.3/galleria/galleria-1.3.3.min.js
+#	new file:   assets/js/galleria-1.3.3/galleria/plugins/flickr/flickr-demo.html
+#	new file:   assets/js/galleria-1.3.3/galleria/plugins/flickr/flickr-loader.gif
+#	new file:   assets/js/galleria-1.3.3/galleria/plugins/flickr/galleria.flickr.js
+#	new file:   assets/js/galleria-1.3.3/galleria/plugins/flickr/galleria.flickr.min.js
+#	new file:   assets/js/galleria-1.3.3/galleria/plugins/flickr/loader.gif
+#	new file:   assets/js/galleria-1.3.3/galleria/plugins/history/galleria.history.js
+#	new file:   assets/js/galleria-1.3.3/galleria/plugins/history/galleria.history.min.js
+#	new file:   assets/js/galleria-1.3.3/galleria/plugins/history/history-demo.html
+#	new file:   assets/js/galleria-1.3.3/galleria/plugins/picasa/galleria.picasa.js
+#	new file:   assets/js/galleria-1.3.3/galleria/plugins/picasa/galleria.picasa.min.js
+#	new file:   assets/js/galleria-1.3.3/galleria/plugins/picasa/loader.gif
+#	new file:   assets/js/galleria-1.3.3/galleria/plugins/picasa/picasa-demo.html
+#	new file:   assets/js/galleria-1.3.3/galleria/themes/classic/classic-demo.html
+#	new file:   assets/js/galleria-1.3.3/galleria/themes/classic/classic-loader.gif
+#	new file:   assets/js/galleria-1.3.3/galleria/themes/classic/classic-map.png
+#	new file:   assets/js/galleria-1.3.3/galleria/themes/classic/galleria.classic.css
+#	new file:   assets/js/galleria-1.3.3/galleria/themes/classic/galleria.classic.js
+#	new file:   assets/js/galleria-1.3.3/galleria/themes/classic/galleria.classic.min.js
+#	new file:   assets/js/galleria.classic.css
+#	new file:   assets/js/galleria.classic.js
+#	new file:   assets/js/galleria.classic.min.js
+#	new file:   assets/js/h.js
+#	new file:   assets/js/jquery.js
+#	new file:   assets/js/themes/classic/classic-demo.html
+#	new file:   assets/js/themes/classic/classic-loader.gif
+#	new file:   assets/js/themes/classic/classic-map.png
+#	new file:   assets/js/themes/classic/galleria.classic.css
+#	new file:   assets/js/themes/classic/galleria.classic.js
+#	new file:   assets/js/themes/classic/galleria.classic.min.js
+#	new file:   assets/root/1.jpg
+#	new file:   assets/root/2.jpg
+#	new file:   assets/root/3.jpg
+#	new file:   assets/root/4.jpg
+#	new file:   assets/root/6.jpg
+#	new file:   assets/root/7.jpg
+#	new file:   assets/root/classic-demo.html
+#	new file:   assets/root/classic-loader.gif
+#	new file:   assets/root/classic-map.png
+#	new file:   assets/root/galleria-1.3.3.js
+#	new file:   assets/root/galleria-1.3.3.min.js
+#	new file:   assets/root/galleria.classic.css
+#	new file:   assets/root/galleria.classic.js
+#	new file:   assets/root/galleria.classic.min.js
+#	new file:   assets/root/images/1.jpg
+#	new file:   assets/root/images/3.jpg
+#	new file:   assets/root/images/4.jpg
+#	new file:   assets/root/images/6.jpg
+#	new file:   assets/root/images/7.jpg
+#	new file:   assets/root/images/journ.jpg
+#	new file:   assets/root/images/k!.jpg
+#	new file:   assets/root/jquery.js
+#	new file:   images/1.jpg
+#	new file:   images/1208530_564648083583491_213829018_n.jpg
+#	new file:   images/1425634_441493879285537_142624830_n.jpg
+#	new file:   images/1450133_219279028254438_1696639686_n.jpg
+#	new file:   images/2.jpg
+#	new file:   images/2_pongal-wallpaper.jpg
+#	new file:   images/3.jpg
+#	new file:   images/4.jpg
+#	new file:   images/541068_4100140002074_1404419617_n.jpg
+#	new file:   images/561628_329430727195768_996618215_n.jpg
+#	new file:   images/6.jpg
+#	new file:   images/7.jpg
+#	new file:   images/988337_442843832495013_340334767_n.jpg
+#	new file:   images/995591_219246978257643_888795157_n.jpg
+#	new file:   images/Capture1.PNG
+#	new file:   images/IMG_20130709_191912.jpg
+#	new file:   images/IMG_20130709_194506.jpg
+#	new file:   images/Pongal_Banner.jpg
+#	new file:   images/free-christmas-wall-paper-1.jpg
+#	new file:   images/free-christmas-wall-paper-11.jpg
+#	new file:   images/k!.jpg
+#	new file:   uploads/Capture1.PNG
+#	new file:   uploads/Capture11.PNG
+#	new file:   uploads/Capture11_thumb.PNG
+#	new file:   uploads/Capture1_thumb.PNG
+#	new file:   uploads/Pongal_Banner.jpg
+#	new file:   uploads/Pongal_Banner_thumb.jpg
+#
+

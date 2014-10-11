@@ -1,0 +1,1196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0056)http://docs.mongodb.org/manual/reference/sql-comparison/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script type="text/javascript" async="" src="./SQL to MongoDB Mapping Chart — MongoDB Manual 2.4.8_files/inpage_linkid.js" id="undefined"></script><script type="text/javascript" async="" src="./SQL to MongoDB Mapping Chart — MongoDB Manual 2.4.8_files/a7n.js"></script>
+  <link href="./SQL to MongoDB Mapping Chart — MongoDB Manual 2.4.8_files/css" rel="stylesheet" type="text/css"><title>SQL to MongoDB Mapping Chart — MongoDB Manual 2.4.8</title><link rel="shortcut icon" href="http://media.mongodb.org/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="robots" content="index">
+  <meta name="release" content="2.4.8">
+  <meta name="DC.Source" content="https://github.com/mongodb/docs/blob/v2.4/source/reference/sql-comparison.txt">
+    <link rel="canonical" href="http://docs.mongodb.org/manual/reference/sql-comparison">
+  
+   <link rel="stylesheet" href="./SQL to MongoDB Mapping Chart — MongoDB Manual 2.4.8_files/mongodb-docs.css" type="text/css">
+   <link rel="stylesheet" href="./SQL to MongoDB Mapping Chart — MongoDB Manual 2.4.8_files/pygments.css" type="text/css">
+       <link rel="stylesheet" href="./SQL to MongoDB Mapping Chart — MongoDB Manual 2.4.8_files/bootstrap-custom.css" type="text/css">
+       <link rel="stylesheet" href="./SQL to MongoDB Mapping Chart — MongoDB Manual 2.4.8_files/icomoon.css" type="text/css">
+       <link rel="stylesheet" href="./SQL to MongoDB Mapping Chart — MongoDB Manual 2.4.8_files/tipsy.css" type="text/css">
+    
+  <script async="" src="./SQL to MongoDB Mapping Chart — MongoDB Manual 2.4.8_files/analytics.js"></script><script type="text/javascript" async="" src="./SQL to MongoDB Mapping Chart — MongoDB Manual 2.4.8_files/ga.js"></script><script async="" src="./SQL to MongoDB Mapping Chart — MongoDB Manual 2.4.8_files/gtm.js"></script><script type="text/javascript" async="" src="./SQL to MongoDB Mapping Chart — MongoDB Manual 2.4.8_files/cse.js"></script><script type="text/javascript">
+    var DOCUMENTATION_OPTIONS = {
+     URL_ROOT:    '../../',
+     VERSION:     '2.4',
+     COLLAPSE_INDEX: false,
+     FILE_SUFFIX: '',
+     HAS_SOURCE:  false,
+    };
+  </script>
+    <script type="text/javascript" src="./SQL to MongoDB Mapping Chart — MongoDB Manual 2.4.8_files/jquery.js"></script>
+    <script type="text/javascript" src="./SQL to MongoDB Mapping Chart — MongoDB Manual 2.4.8_files/underscore.js"></script>
+    <script type="text/javascript" src="./SQL to MongoDB Mapping Chart — MongoDB Manual 2.4.8_files/doctools.js"></script>
+    <script type="text/javascript" src="./SQL to MongoDB Mapping Chart — MongoDB Manual 2.4.8_files/bootstrap.js"></script>
+    <script type="text/javascript" src="./SQL to MongoDB Mapping Chart — MongoDB Manual 2.4.8_files/jquery.tipsy.js"></script>
+      <link rel="search" type="application/opensearchdescription+xml" href="http://docs.mongodb.org/osd.xml" title="MongoDB Help">
+<link rel="author" title="About these documents" href="http://docs.mongodb.org/manual/about/">
+<link rel="top" title="MongoDB Manual" href="http://docs.mongodb.org/manual/">
+<link rel="up" title="MongoDB CRUD Reference" href="http://docs.mongodb.org/manual/reference/crud/">
+<link rel="next" title="The bios Example Collection" href="http://docs.mongodb.org/manual/reference/bios-example-collection/">
+<link rel="prev" title="Write Concern Reference" href="http://docs.mongodb.org/manual/reference/write-concern/">
+      <script type="text/javascript">
+        (function() {
+           var cx = '017213726194841070573:WMX6838984';
+           var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+           gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//www.google.com/cse/cse.js?cx=' + cx;
+           gcse.onload = gcse.onreadystatechange = function() {
+            $(function() {
+              // hack to set a placeholder in google's custom search input
+              var pollInput = window.setInterval(function() {
+                var $input = $('.gsc-input input.gsc-input'),
+                    $div = $('.search-db');
+
+                if ($input.length) {
+                  $input.on('focus', function(e) { $div.addClass('wide').removeClass('narrow'); });
+                  $input.on('blur', function(e) {
+                    if (!$input.val().length) { $div.addClass('narrow').removeClass('wide'); }
+                  });
+                  $input.attr('placeholder', "Search mongodb.org");
+                  window.clearInterval(pollInput);
+                }
+              }, 10);
+            });
+           };
+           var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+           })();
+        $(function() {
+          $('.translation-link').add('.jira-link').add('.edit-link').tipsy({gravity: 's'});
+        });
+      </script><script type="text/javascript" async="" src="./SQL to MongoDB Mapping Chart — MongoDB Manual 2.4.8_files/jquery-latest.min.js"></script><script src="./SQL to MongoDB Mapping Chart — MongoDB Manual 2.4.8_files/jsapi" type="text/javascript"></script><link type="text/css" href="./SQL to MongoDB Mapping Chart — MongoDB Manual 2.4.8_files/default+en.css" rel="stylesheet"><link type="text/css" href="./SQL to MongoDB Mapping Chart — MongoDB Manual 2.4.8_files/default.css" rel="stylesheet"><script type="text/javascript" src="./SQL to MongoDB Mapping Chart — MongoDB Manual 2.4.8_files/default+en.I.js"></script><script type="text/javascript" src="./SQL to MongoDB Mapping Chart — MongoDB Manual 2.4.8_files/search.I.js"></script><style type="text/css">
+.gsc-control-cse {
+font-family: Arial, sans-serif;
+border-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gsc-control-cse .gsc-table-result {
+font-family: Arial, sans-serif;
+}
+input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus {
+border-color: #D9D9D9;
+}
+input.gsc-search-button, input.gsc-search-button:hover, input.gsc-search-button:focus {
+border-color: #5AAC41;
+background-color: #5AAC41;
+background-image: none;
+filter: none;
+}
+.gsc-tabHeader.gsc-tabhInactive {
+border-color: #CCCCCC;
+background-color: #FFFFFF;
+}
+.gsc-tabHeader.gsc-tabhActive {
+border-color: #CCCCCC;
+border-bottom-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gsc-tabsArea {
+border-color: #CCCCCC;
+}
+.gsc-webResult.gsc-result,
+.gsc-results .gsc-imageResult {
+border-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gsc-webResult.gsc-result:hover,
+.gsc-imageResult:hover {
+border-color: #FFFFFF;
+background-color: #FFFFFF;
+}
+.gs-webResult.gs-result a.gs-title:link,
+.gs-webResult.gs-result a.gs-title:link b,
+.gs-imageResult a.gs-title:link,
+.gs-imageResult a.gs-title:link b {
+color: #1155CC;
+}
+.gs-webResult.gs-result a.gs-title:visited,
+.gs-webResult.gs-result a.gs-title:visited b,
+.gs-imageResult a.gs-title:visited,
+.gs-imageResult a.gs-title:visited b {
+color: #1155CC;
+}
+.gs-webResult.gs-result a.gs-title:hover,
+.gs-webResult.gs-result a.gs-title:hover b,
+.gs-imageResult a.gs-title:hover,
+.gs-imageResult a.gs-title:hover b {
+color: #1155CC;
+}
+.gs-webResult.gs-result a.gs-title:active,
+.gs-webResult.gs-result a.gs-title:active b,
+.gs-imageResult a.gs-title:active,
+.gs-imageResult a.gs-title:active b {
+color: #1155CC;
+}
+.gsc-cursor-page {
+color: #1155CC;
+}
+a.gsc-trailing-more-results:link {
+color: #1155CC;
+}
+.gs-webResult .gs-snippet,
+.gs-imageResult .gs-snippet,
+.gs-fileFormatType {
+color: #333333;
+}
+.gs-webResult div.gs-visibleUrl,
+.gs-imageResult div.gs-visibleUrl {
+color: #009933;
+}
+.gs-webResult div.gs-visibleUrl-short {
+color: #009933;
+}
+.gs-webResult div.gs-visibleUrl-short {
+display: none;
+}
+.gs-webResult div.gs-visibleUrl-long {
+display: block;
+}
+.gs-promotion div.gs-visibleUrl-short {
+display: none;
+}
+.gs-promotion div.gs-visibleUrl-long {
+display: block;
+}
+.gsc-cursor-box {
+border-color: #FFFFFF;
+}
+.gsc-results .gsc-cursor-box .gsc-cursor-page {
+border-color: #CCCCCC;
+background-color: #FFFFFF;
+color: #1155CC;
+}
+.gsc-results .gsc-cursor-box .gsc-cursor-current-page {
+border-color: #CCCCCC;
+background-color: #FFFFFF;
+color: #1155CC;
+}
+.gsc-webResult.gsc-result.gsc-promotion {
+border-color: #F6F6F6;
+background-color: #F6F6F6;
+}
+.gsc-completion-title {
+color: #1155CC;
+}
+.gsc-completion-snippet {
+color: #333333;
+}
+.gs-promotion a.gs-title:link,
+.gs-promotion a.gs-title:link *,
+.gs-promotion .gs-snippet a:link {
+color: #1155CC;
+}
+.gs-promotion a.gs-title:visited,
+.gs-promotion a.gs-title:visited *,
+.gs-promotion .gs-snippet a:visited {
+color: #1155CC;
+}
+.gs-promotion a.gs-title:hover,
+.gs-promotion a.gs-title:hover *,
+.gs-promotion .gs-snippet a:hover {
+color: #1155CC;
+}
+.gs-promotion a.gs-title:active,
+.gs-promotion a.gs-title:active *,
+.gs-promotion .gs-snippet a:active {
+color: #1155CC;
+}
+.gs-promotion .gs-snippet,
+.gs-promotion .gs-title .gs-promotion-title-right,
+.gs-promotion .gs-title .gs-promotion-title-right * {
+color: #333333;
+}
+.gs-promotion .gs-visibleUrl,
+.gs-promotion .gs-visibleUrl-short {
+color: #009933;
+}
+.gsc-input input.gsc-input {
+background: none repeat scroll 0% 0% white !important;
+}
+</style><style type="text/css">.gscb_a{display:inline-block;font:27px/13px arial,sans-serif}.gsst_a .gscb_a{color:#a1b9ed;cursor:pointer}.gsst_a:hover .gscb_a,.gsst_a:focus .gscb_a{color:#36c}.gsst_a{display:inline-block}.gsst_a{cursor:pointer;padding:0 4px}.gsst_a:hover{text-decoration:none!important}.gsst_b{font-size:16px;padding:0 2px;position:relative;user-select:none;-webkit-user-select:none;white-space:nowrap}.gsst_e{opacity:0.55;}.gsst_a:hover .gsst_e,.gsst_a:focus .gsst_e{opacity:0.72;}.gsst_a:active .gsst_e{opacity:1;}.gsst_f{background:white;text-align:left}.gsst_g{background-color:white;border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);margin:-1px -3px;padding:0 6px}.gsst_h{background-color:white;height:1px;margin-bottom:-1px;position:relative;top:-1px}.gsib_a{width:100%;padding:4px 6px 0}.gsib_a,.gsib_b{vertical-align:top}.gssb_c{border:0;position:absolute;z-index:989}.gssb_e{border:1px solid #ccc;border-top-color:#d9d9d9;box-shadow:0 2px 4px rgba(0,0,0,0.2);-webkit-box-shadow:0 2px 4px rgba(0,0,0,0.2);cursor:default}.gssb_f{visibility:hidden;white-space:nowrap}.gssb_k{border:0;display:block;position:absolute;top:0;z-index:988}.gsdd_a{border:none!important}.gscsep_a{display:none}.gsq_a{padding:0}.gssb_a{padding:0 7px}.gssb_a,.gssb_a td{white-space:nowrap;overflow:hidden;line-height:22px}#gssb_b{font-size:11px;color:#36c;text-decoration:none}#gssb_b:hover{font-size:11px;color:#36c;text-decoration:underline}.gssb_g{text-align:center;padding:8px 0 7px;position:relative}.gssb_h{font-size:15px;height:28px;margin:0.2em;-webkit-appearance:button}.gssb_i{background:#eee}.gss_ifl{visibility:hidden;padding-left:5px}.gssb_i .gss_ifl{visibility:visible}a.gssb_j{font-size:13px;color:#36c;text-decoration:none;line-height:100%}a.gssb_j:hover{text-decoration:underline}.gssb_l{height:1px;background-color:#e5e5e5}.gssb_m{color:#000;background:#fff}.gsfe_a{border:1px solid #b9b9b9;border-top-color:#a0a0a0;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.1);}.gsfe_b{border:1px solid #4d90fe;outline:none;box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-moz-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);-webkit-box-shadow:inset 0px 1px 2px rgba(0,0,0,0.3);}.gssb_a{padding:0 9px}.gsib_a{padding-right:8px;padding-left:8px}.gsst_a{padding-top:3px}.gssb_e{border:0}.gssb_l{margin:5px 0}.gssb_c .gsc-completion-container{position:static}.gssb_c{z-index:5000}.gsc-completion-container table{background:transparent;font-size:inherit;font-family:inherit}.gssb_c > tbody > tr,.gssb_c > tbody > tr > td,.gssb_d,.gssb_d > tbody > tr,.gssb_d > tbody > tr > td,.gssb_e,.gssb_e > tbody > tr,.gssb_e > tbody > tr > td{padding:0;margin:0;border:0}.gssb_a table,.gssb_a table tr,.gssb_a table tr td{padding:0;margin:0;border:0}</style><style type="text/css">.atlwdg-blanket {background: black;height: 100%;left: 0;opacity: .5;position: fixed;top: 0;width: 100%;z-index: 1000000;}.atlwdg-popup {background: white;border: 1px solid #666;position: fixed;top: 50%;left: 50%;z-index: 10000011;}.atlwdg-popup.atlwdg-box-shadow {-moz-box-shadow: 10px 10px 20px rgba(0,0,0,0.5);-webkit-box-shadow: 10px 10px 20px rgba(0,0,0,0.5);box-shadow: 10px 10px 20px rgba(0,0,0,0.5);background-color: white;}.atlwdg-hidden {display: none;}.atlwdg-trigger {position: fixed;background: #013466;padding: 5px;border: 2px solid white;border-top: none;font-weight: bold;color: white !important;display: block;white-space: nowrap;text-decoration: none !important;font-family: arial, FreeSans, Helvetica, sans-serif;font-size: 12px;box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);-webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);-moz-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);border-radius: 0 0 5px 5px;-moz-border-radius: 0 0 5px 5px;}.atlwdg-trigger.atlwdg-TOP {left: 45%;top: 0;}.atlwdg-trigger.atlwdg-RIGHT {left: 100%;top: 40%;-webkit-transform-origin: top left;-webkit-transform: rotate(90deg);-moz-transform: rotate(90deg);-moz-transform-origin: top left;-ms-transform: rotate(90deg);-ms-transform-origin: top left;}.atlwdg-trigger.atlwdg-SUBTLE {right: 0;bottom: 0;border: 1px solid #ccc;border-bottom: none;border-right: none;background-color: #f5f5f5;color: #444 !important;font-size: 11px;padding: 6px;box-shadow: -1px -1px 2px rgba(0, 0, 0, 0.5);border-radius: 2px 0 0 0;}.atlwdg-loading {position: absolute;top: 220px;left: 295px;}</style></head>
+<body style="">
+    <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-RHMS');
+    </script>
+    <header id="header-db" role="navigation">
+      <div class="container">
+        <div id="logo"><a href="http://www.mongodb.org/"><img class="logo" src="./SQL to MongoDB Mapping Chart — MongoDB Manual 2.4.8_files/logo-mongodb-header.png" alt="MongoDB Logo"></a></div>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-header-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse navbar-header-collapse" id="etp">
+          <ul class="nav navbar-nav">
+              <li><a href="http://docs.mongodb.org/">Docs</a></li>
+              <li><a href="http://try.mongodb.org/">Try It Out</a></li>
+              <li><a href="http://www.mongodb.org/downloads">Downloads</a></li>
+              <li><a href="http://www.mongodb.org/get-involved">Community</a></li>
+              <li><a href="http://blog.mongodb.org/">Blog</a></li>
+            
+              <li class="search-db narrow"><div id="___gcse_0"><div class="gsc-control-searchbox-only gsc-control-searchbox-only-en" dir="ltr"><form class="gsc-search-box gsc-search-box-tools" accept-charset="utf-8"><table cellspacing="0" cellpadding="0" class="gsc-search-box"><tbody><tr><td class="gsc-input"><div class="gsc-input-box" id="gsc-iw-id1"><table cellspacing="0" cellpadding="0" id="gs_id50" class="gstl_50 " style="width: 100%; padding: 0px;"><tbody><tr><td id="gs_tti50" class="gsib_a"><input autocomplete="off" type="text" size="10" class="gsc-input" name="search" title="search" id="gsc-i-id1" style="width: 100%; padding: 0px; border: none; margin: 0px; height: auto; outline: none;" dir="ltr" spellcheck="false" placeholder="Search mongodb.org"></td><td class="gsib_b"><div class="gsst_b" id="gs_st50" dir="ltr"><a class="gsst_a" href="javascript:void(0)" style="display: none;"><span class="gscb_a" id="gs_cb50">×</span></a></div></td></tr></tbody></table></div></td><td class="gsc-search-button"><input type="image" src="./SQL to MongoDB Mapping Chart — MongoDB Manual 2.4.8_files/search_box_icon.png" class="gsc-search-button gsc-search-button-v2" title="search"></td><td class="gsc-clear-button"><div class="gsc-clear-button" title="clear results">&nbsp;</div></td></tr></tbody></table><table cellspacing="0" cellpadding="0" class="gsc-branding"><tbody><tr style="display: none;"><td class="gsc-branding-user-defined"></td><td class="gsc-branding-text"><div class="gsc-branding-text">powered by</div></td><td class="gsc-branding-img"><img src="./SQL to MongoDB Mapping Chart — MongoDB Manual 2.4.8_files/small-logo.png" class="gsc-branding-img"></td></tr></tbody></table></form></div></div></li>
+            
+          </ul>
+        </div>
+      </div>
+    </header>
+
+  <div class="container">  
+      <div class="document row">
+    <div class="sphinxsidebar col-md-3">
+      <div class="sphinxsidebarwrapper"><h3>
+  <a href="http://docs.mongodb.org/manual/">MongoDB Manual</a>
+  <span id="vn">
+    <select>
+      
+      <option data-path="master">
+        2.6 (upcoming)
+      </option>
+      
+      <option data-path="manual" selected="selected">
+        2.4 (current)
+      </option>
+      
+      <option data-path="v2.2">
+        2.2
+      </option>
+      
+    </select>
+  </span>
+</h3>
+
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="http://docs.mongodb.org/manual/core/introduction/">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.mongodb.org/manual/installation/">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="http://docs.mongodb.org/manual/crud/">MongoDB CRUD Operations</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="http://docs.mongodb.org/manual/core/crud-introduction/">MongoDB CRUD Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.mongodb.org/manual/core/crud/">MongoDB CRUD Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http://docs.mongodb.org/manual/applications/crud/">MongoDB CRUD Tutorials</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="http://docs.mongodb.org/manual/reference/crud/">MongoDB CRUD Reference</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="http://docs.mongodb.org/manual/reference/write-concern/">Write Concern Reference</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="">SQL to MongoDB Mapping Chart</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.mongodb.org/manual/reference/bios-example-collection/">The <tt class="docutils literal"><span class="pre">bios</span></tt> Example Collection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="http://docs.mongodb.org/manual/applications/drivers/">MongoDB Drivers and Client Libraries</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.mongodb.org/manual/data-modeling/">Data Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.mongodb.org/manual/administration/">Administration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.mongodb.org/manual/security/">Security</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.mongodb.org/manual/aggregation/">Aggregation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.mongodb.org/manual/indexes/">Indexes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.mongodb.org/manual/replication/">Replication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.mongodb.org/manual/sharding/">Sharding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.mongodb.org/manual/faq/">Frequently Asked Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.mongodb.org/manual/reference/">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http://docs.mongodb.org/manual/release-notes/">Release Notes</a></li>
+</ul>
+
+
+<div class="site-about"><a href="http://docs.mongodb.org/manual/about/">About</a></div>
+<div class="site-contents"><a href="http://docs.mongodb.org/manual/contents/">Contents</a></div>
+<div class="site-index"><a href="http://docs.mongodb.org/manual/genindex/">Index</a></div><h3>Formats</h3>
+<ul class="this-page-menu">
+  <li><a href="http://docs.mongodb.org/manual/single/"><span class="icon-file-xml"></span></a></li>
+  <li><a href="http://docs.mongodb.org/v2.4/MongoDB-manual.pdf" rel="nofollow"><span class="icon-file-pdf"></span></a></li>
+  <li><a href="http://docs.mongodb.org/v2.4/MongoDB-manual.epub" rel="nofollow"><span class="icon-book"></span></a></li>
+</ul>
+      </div>
+    </div>
+          <div class="documentwrapper col-md-9"><div class="bodywrapper">
+            <div class="body">
+              
+    <a class="edit-link" href="https://github.com/mongodb/docs/blob/v2.4/source/reference/sql-comparison.txt" target="_blank" original-title="Edit reference/sql-comparison.txt on GitHub"><span class="icon-edit"></span></a>
+              
+    <a class="jira-link" id="jirafeedback" href="https://jira.mongodb.org/secure/CreateIssueDetails!init.jspa?pid=10380&issuetype=4&priority=4&summary=Comment+on%3a+%22reference/sql-comparison%2Etxt%22" target="_blank" original-title="Report a problem with reference/sql-comparison.txt on Jira"><span class="icon-feedback"></span></a>
+              
+    <a class="translation-link" href="http://docs.mongodb.org/manual/meta/translation" original-title="View in another language"><span class="icon-translation"></span></a>
+              
+    <div class="bc">
+      <ul>
+          <li><a href="http://docs.mongodb.org/manual/crud/">MongoDB CRUD Operations</a><span class="bcpoint"> &gt; </span></li>
+          
+          <li><a href="http://docs.mongodb.org/manual/reference/crud/">MongoDB CRUD Reference</a><span class="bcpoint"> &gt; </span></li>
+          <li>SQL to MongoDB Mapping Chart</li> 
+      </ul>
+    </div>
+              
+                <div class="section" id="sql-to-mongodb-mapping-chart">
+<h1>SQL to MongoDB Mapping Chart<a class="headerlink" href="http://docs.mongodb.org/manual/reference/sql-comparison/#sql-to-mongodb-mapping-chart" title="Permalink to this headline">¶</a></h1>
+<p>In addition to the charts that follow, you might want to consider the
+<a class="reference internal" href="http://docs.mongodb.org/manual/faq/"><em>Frequently Asked Questions</em></a> section for a selection of common questions about MongoDB.</p>
+<div class="section" id="terminology-and-concepts">
+<h2>Terminology and Concepts<a class="headerlink" href="http://docs.mongodb.org/manual/reference/sql-comparison/#terminology-and-concepts" title="Permalink to this headline">¶</a></h2>
+<p>The following table presents the various SQL terminology and concepts
+and the corresponding MongoDB terminology and concepts.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%">
+<col width="50%">
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">SQL Terms/Concepts</th>
+<th class="head">MongoDB Terms/Concepts</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>database</td>
+<td><a class="reference internal" href="http://docs.mongodb.org/manual/reference/glossary/#term-database"><em class="xref std std-term">database</em></a></td>
+</tr>
+<tr class="row-odd"><td>table</td>
+<td><a class="reference internal" href="http://docs.mongodb.org/manual/reference/glossary/#term-collection"><em class="xref std std-term">collection</em></a></td>
+</tr>
+<tr class="row-even"><td>row</td>
+<td><a class="reference internal" href="http://docs.mongodb.org/manual/reference/glossary/#term-document"><em class="xref std std-term">document</em></a> or <a class="reference internal" href="http://docs.mongodb.org/manual/reference/glossary/#term-bson"><em class="xref std std-term">BSON</em></a> document</td>
+</tr>
+<tr class="row-odd"><td>column</td>
+<td><a class="reference internal" href="http://docs.mongodb.org/manual/reference/glossary/#term-field"><em class="xref std std-term">field</em></a></td>
+</tr>
+<tr class="row-even"><td>index</td>
+<td><a class="reference internal" href="http://docs.mongodb.org/manual/reference/glossary/#term-index"><em class="xref std std-term">index</em></a></td>
+</tr>
+<tr class="row-odd"><td>table joins</td>
+<td>embedded documents and linking</td>
+</tr>
+<tr class="row-even"><td><p class="first">primary key</p>
+<p class="last">Specify any unique column or column combination as primary
+key.</p>
+</td>
+<td><p class="first"><a class="reference internal" href="http://docs.mongodb.org/manual/reference/glossary/#term-primary-key"><em class="xref std std-term">primary key</em></a></p>
+<p class="last">In MongoDB, the primary key is automatically set to the
+<a class="reference internal" href="http://docs.mongodb.org/manual/reference/glossary/#term-id"><em class="xref std std-term">_id</em></a> field.</p>
+</td>
+</tr>
+<tr class="row-odd"><td>aggregation (e.g. group by)</td>
+<td><p class="first">aggregation pipeline</p>
+<p class="last">See the <a class="reference internal" href="http://docs.mongodb.org/manual/reference/sql-aggregation-comparison/"><em>SQL to Aggregation Mapping Chart</em></a>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="executables">
+<h2>Executables<a class="headerlink" href="http://docs.mongodb.org/manual/reference/sql-comparison/#executables" title="Permalink to this headline">¶</a></h2>
+<p>The following table presents the MySQL/Oracle executables and the
+corresponding MongoDB executables.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%">
+<col width="33%">
+<col width="33%">
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">&nbsp;</th>
+<th class="head">MySQL/Oracle</th>
+<th class="head">MongoDB</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Database Server</td>
+<td><tt class="docutils literal"><span class="pre">mysqld/oracle</span></tt></td>
+<td><a class="reference internal" href="http://docs.mongodb.org/manual/reference/program/mongod/#bin.mongod" title="mongod"><tt class="xref mongodb mongodb-program docutils literal"><span class="pre">mongod</span></tt></a></td>
+</tr>
+<tr class="row-odd"><td>Database Client</td>
+<td><tt class="docutils literal"><span class="pre">mysql/sqlplus</span></tt></td>
+<td><a class="reference internal" href="http://docs.mongodb.org/manual/reference/program/mongo/#bin.mongo" title="mongo"><tt class="xref mongodb mongodb-program docutils literal"><span class="pre">mongo</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="http://docs.mongodb.org/manual/reference/sql-comparison/#examples" title="Permalink to this headline">¶</a></h2>
+<p>The following table presents the various SQL statements and the
+corresponding MongoDB statements. The examples in the table assume the
+following conditions:</p>
+<ul>
+<li><p class="first">The SQL examples assume a table named <tt class="docutils literal"><span class="pre">users</span></tt>.</p>
+</li>
+<li><p class="first">The MongoDB examples assume a collection named <tt class="docutils literal"><span class="pre">users</span></tt> that contain
+documents of the following prototype:</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="p">{</span>
+  <span class="nx">_id</span><span class="o">:</span> <span class="nx">ObjectID</span><span class="p">(</span><span class="s2">"509a8fb2f3f4948bd2f983a0"</span><span class="p">),</span>
+  <span class="nx">user_id</span><span class="o">:</span> <span class="s2">"abc123"</span><span class="p">,</span>
+  <span class="nx">age</span><span class="o">:</span> <span class="mi">55</span><span class="p">,</span>
+  <span class="nx">status</span><span class="o">:</span> <span class="s1">'A'</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="section" id="create-and-alter">
+<h3>Create and Alter<a class="headerlink" href="http://docs.mongodb.org/manual/reference/sql-comparison/#create-and-alter" title="Permalink to this headline">¶</a></h3>
+<p>The following table presents the various SQL statements related to
+table-level actions and the corresponding MongoDB statements.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%">
+<col width="33%">
+<col width="33%">
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">SQL Schema Statements</th>
+<th class="head">MongoDB Schema Statements</th>
+<th class="head">Reference</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><div class="first last highlight-sql"><div class="highlight"><pre><span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">users</span> <span class="p">(</span>
+    <span class="n">id</span> <span class="n">MEDIUMINT</span> <span class="k">NOT</span> <span class="k">NULL</span>
+        <span class="n">AUTO_INCREMENT</span><span class="p">,</span>
+    <span class="n">user_id</span> <span class="nb">Varchar</span><span class="p">(</span><span class="mi">30</span><span class="p">),</span>
+    <span class="n">age</span> <span class="nb">Number</span><span class="p">,</span>
+    <span class="n">status</span> <span class="nb">char</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span>
+    <span class="k">PRIMARY</span> <span class="k">KEY</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><p class="first">Implicitly created on first <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.insert/#db.collection.insert" title="db.collection.insert()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">insert()</span></tt></a> operation. The primary key <tt class="docutils literal"><span class="pre">_id</span></tt>
+is automatically added if <tt class="docutils literal"><span class="pre">_id</span></tt> field is not specified.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span> <span class="p">{</span>
+</span><span class="hll">    <span class="nx">user_id</span><span class="o">:</span> <span class="s2">"abc123"</span><span class="p">,</span>
+</span><span class="hll">    <span class="nx">age</span><span class="o">:</span> <span class="mi">55</span><span class="p">,</span>
+</span><span class="hll">    <span class="nx">status</span><span class="o">:</span> <span class="s2">"A"</span>
+</span><span class="hll"> <span class="p">}</span> <span class="p">)</span>
+</span></pre></div>
+</div>
+<p>However, you can also explicitly create a collection:</p>
+<div class="last highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">createCollection</span><span class="p">(</span><span class="s2">"users"</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</td>
+<td>See
+<a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.insert/#db.collection.insert" title="db.collection.insert()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">insert()</span></tt></a> and
+<a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.createCollection/#db.createCollection" title="db.createCollection()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">db.createCollection()</span></tt></a>
+for more information.</td>
+</tr>
+<tr class="row-odd"><td><div class="first last highlight-sql"><div class="highlight"><pre><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">users</span>
+<span class="k">ADD</span> <span class="n">join_date</span> <span class="n">DATETIME</span>
+</pre></div>
+</div>
+</td>
+<td><p class="first">Collections do not describe or enforce the structure of its
+documents; i.e. there is no structural alteration at the
+collection level.</p>
+<p>However, at the document level, <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.update/#db.collection.update" title="db.collection.update()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">update()</span></tt></a> operations can add fields to existing
+documents using the <a class="reference internal" href="http://docs.mongodb.org/manual/reference/operator/update/set/#up._S_set" title="$set"><tt class="xref mongodb mongodb-update docutils literal"><span class="pre">$set</span></tt></a> operator.</p>
+<div class="last highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span>
+</span><span class="hll">    <span class="p">{</span> <span class="p">},</span>
+</span><span class="hll">    <span class="p">{</span> <span class="nx">$set</span><span class="o">:</span> <span class="p">{</span> <span class="nx">join_date</span><span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()</span> <span class="p">}</span> <span class="p">},</span>
+</span><span class="hll">    <span class="p">{</span> <span class="nx">multi</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span>
+</span><span class="hll"><span class="p">)</span>
+</span></pre></div>
+</div>
+</td>
+<td>See the <a class="reference internal" href="http://docs.mongodb.org/manual/core/data-models/"><em>Data Modeling Concepts</em></a>, <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.update/#db.collection.update" title="db.collection.update()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">update()</span></tt></a>, and <a class="reference internal" href="http://docs.mongodb.org/manual/reference/operator/update/set/#up._S_set" title="$set"><tt class="xref mongodb mongodb-update docutils literal"><span class="pre">$set</span></tt></a> for more
+information on changing the structure of documents in a
+collection.</td>
+</tr>
+<tr class="row-even"><td><div class="first last highlight-sql"><div class="highlight"><pre><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">users</span>
+<span class="k">DROP</span> <span class="k">COLUMN</span> <span class="n">join_date</span>
+</pre></div>
+</div>
+</td>
+<td><p class="first">Collections do not describe or enforce the structure of its
+documents; i.e. there is no structural alteration at the collection
+level.</p>
+<p>However, at the document level, <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.update/#db.collection.update" title="db.collection.update()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">update()</span></tt></a> operations can remove fields from
+documents using the <a class="reference internal" href="http://docs.mongodb.org/manual/reference/operator/update/unset/#up._S_unset" title="$unset"><tt class="xref mongodb mongodb-update docutils literal"><span class="pre">$unset</span></tt></a> operator.</p>
+<div class="last highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span>
+</span><span class="hll">    <span class="p">{</span> <span class="p">},</span>
+</span><span class="hll">    <span class="p">{</span> <span class="nx">$unset</span><span class="o">:</span> <span class="p">{</span> <span class="nx">join_date</span><span class="o">:</span> <span class="s2">""</span> <span class="p">}</span> <span class="p">},</span>
+</span><span class="hll">    <span class="p">{</span> <span class="nx">multi</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span>
+</span><span class="hll"><span class="p">)</span>
+</span></pre></div>
+</div>
+</td>
+<td>See <a class="reference internal" href="http://docs.mongodb.org/manual/core/data-models/"><em>Data Modeling Concepts</em></a>, <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.update/#db.collection.update" title="db.collection.update()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">update()</span></tt></a>, and
+<a class="reference internal" href="http://docs.mongodb.org/manual/reference/operator/update/unset/#up._S_unset" title="$unset"><tt class="xref mongodb mongodb-update docutils literal"><span class="pre">$unset</span></tt></a> for more information on changing the structure of
+documents in a collection.</td>
+</tr>
+<tr class="row-odd"><td><div class="first last highlight-sql"><div class="highlight"><pre><span class="k">CREATE</span> <span class="k">INDEX</span> <span class="n">idx_user_id_asc</span>
+<span class="k">ON</span> <span class="n">users</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first last highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">ensureIndex</span><span class="p">(</span> <span class="p">{</span> <span class="nx">user_id</span><span class="o">:</span> <span class="mi">1</span> <span class="p">}</span> <span class="p">)</span>
+</span></pre></div>
+</div>
+</td>
+<td>See <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.ensureIndex/#db.collection.ensureIndex" title="db.collection.ensureIndex()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">ensureIndex()</span></tt></a>
+and <a class="reference internal" href="http://docs.mongodb.org/manual/core/indexes/"><em>indexes</em></a> for more information.</td>
+</tr>
+<tr class="row-even"><td><div class="first last highlight-sql"><div class="highlight"><pre><span class="k">CREATE</span> <span class="k">INDEX</span>
+       <span class="n">idx_user_id_asc_age_desc</span>
+<span class="k">ON</span> <span class="n">users</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">age</span> <span class="k">DESC</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first last highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">ensureIndex</span><span class="p">(</span> <span class="p">{</span> <span class="nx">user_id</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">age</span><span class="o">:</span> <span class="o">-</span><span class="mi">1</span> <span class="p">}</span> <span class="p">)</span>
+</span></pre></div>
+</div>
+</td>
+<td>See <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.ensureIndex/#db.collection.ensureIndex" title="db.collection.ensureIndex()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">ensureIndex()</span></tt></a>
+and <a class="reference internal" href="http://docs.mongodb.org/manual/core/indexes/"><em>indexes</em></a> for more information.</td>
+</tr>
+<tr class="row-odd"><td><div class="first last highlight-sql"><div class="highlight"><pre><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">users</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first last highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">drop</span><span class="p">()</span>
+</span></pre></div>
+</div>
+</td>
+<td>See <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.drop/#db.collection.drop" title="db.collection.drop()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">drop()</span></tt></a> for
+more information.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="insert">
+<h3>Insert<a class="headerlink" href="http://docs.mongodb.org/manual/reference/sql-comparison/#insert" title="Permalink to this headline">¶</a></h3>
+<p>The following table presents the various SQL statements related to
+inserting records into tables and the corresponding MongoDB statements.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%">
+<col width="33%">
+<col width="33%">
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">SQL INSERT Statements</th>
+<th class="head">MongoDB insert() Statements</th>
+<th class="head">Reference</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><div class="first last highlight-sql"><div class="highlight"><pre><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">users</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span>
+                  <span class="n">age</span><span class="p">,</span>
+                  <span class="n">status</span><span class="p">)</span>
+<span class="k">VALUES</span> <span class="p">(</span><span class="ss">"bcd001"</span><span class="p">,</span>
+        <span class="mi">45</span><span class="p">,</span>
+        <span class="ss">"A"</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first last highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span> <span class="p">{</span>
+</span><span class="hll">       <span class="nx">user_id</span><span class="o">:</span> <span class="s2">"bcd001"</span><span class="p">,</span>
+</span><span class="hll">       <span class="nx">age</span><span class="o">:</span> <span class="mi">45</span><span class="p">,</span>
+</span><span class="hll">       <span class="nx">status</span><span class="o">:</span> <span class="s2">"A"</span>
+</span><span class="hll"><span class="p">}</span> <span class="p">)</span>
+</span></pre></div>
+</div>
+</td>
+<td>See <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.insert/#db.collection.insert" title="db.collection.insert()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">insert()</span></tt></a> for more information.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="select">
+<h3>Select<a class="headerlink" href="http://docs.mongodb.org/manual/reference/sql-comparison/#select" title="Permalink to this headline">¶</a></h3>
+<p>The following table presents the various SQL statements related to
+reading records from tables and the corresponding MongoDB statements.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%">
+<col width="33%">
+<col width="33%">
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">SQL SELECT Statements</th>
+<th class="head">MongoDB find() Statements</th>
+<th class="head">Reference</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><div class="first last highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">users</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first last highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">()</span>
+</span></pre></div>
+</div>
+</td>
+<td>See <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.find/#db.collection.find" title="db.collection.find()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">find()</span></tt></a>
+for more information.</td>
+</tr>
+<tr class="row-odd"><td><div class="first last highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="n">id</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">status</span>
+<span class="k">FROM</span> <span class="n">users</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first last highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span>
+</span><span class="hll">    <span class="p">{</span> <span class="p">},</span>
+</span><span class="hll">    <span class="p">{</span> <span class="nx">user_id</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">status</span><span class="o">:</span> <span class="mi">1</span> <span class="p">}</span>
+</span><span class="hll"><span class="p">)</span>
+</span></pre></div>
+</div>
+</td>
+<td>See <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.find/#db.collection.find" title="db.collection.find()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">find()</span></tt></a>
+for more information.</td>
+</tr>
+<tr class="row-even"><td><div class="first last highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">status</span>
+<span class="k">FROM</span> <span class="n">users</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first last highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span>
+</span><span class="hll">    <span class="p">{</span> <span class="p">},</span>
+</span><span class="hll">    <span class="p">{</span> <span class="nx">user_id</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">status</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">_id</span><span class="o">:</span> <span class="mi">0</span> <span class="p">}</span>
+</span><span class="hll"><span class="p">)</span>
+</span></pre></div>
+</div>
+</td>
+<td>See <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.find/#db.collection.find" title="db.collection.find()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">find()</span></tt></a>
+for more information.</td>
+</tr>
+<tr class="row-odd"><td><div class="first last highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">users</span>
+<span class="k">WHERE</span> <span class="n">status</span> <span class="o">=</span> <span class="ss">"A"</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first last highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span>
+</span><span class="hll">    <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="s2">"A"</span> <span class="p">}</span>
+</span><span class="hll"><span class="p">)</span>
+</span></pre></div>
+</div>
+</td>
+<td>See <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.find/#db.collection.find" title="db.collection.find()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">find()</span></tt></a>
+for more information.</td>
+</tr>
+<tr class="row-even"><td><div class="first last highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">status</span>
+<span class="k">FROM</span> <span class="n">users</span>
+<span class="k">WHERE</span> <span class="n">status</span> <span class="o">=</span> <span class="ss">"A"</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first last highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span>
+</span><span class="hll">    <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="s2">"A"</span> <span class="p">},</span>
+</span><span class="hll">    <span class="p">{</span> <span class="nx">user_id</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">status</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">_id</span><span class="o">:</span> <span class="mi">0</span> <span class="p">}</span>
+</span><span class="p">)</span>
+</pre></div>
+</div>
+</td>
+<td>See <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.find/#db.collection.find" title="db.collection.find()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">find()</span></tt></a>
+for more information.</td>
+</tr>
+<tr class="row-odd"><td><div class="first last highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">users</span>
+<span class="k">WHERE</span> <span class="n">status</span> <span class="o">!=</span> <span class="ss">"A"</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first last highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span>
+</span><span class="hll">    <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$ne</span><span class="o">:</span> <span class="s2">"A"</span> <span class="p">}</span> <span class="p">}</span>
+</span><span class="hll"><span class="p">)</span>
+</span></pre></div>
+</div>
+</td>
+<td>See <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.find/#db.collection.find" title="db.collection.find()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">find()</span></tt></a>
+and <a class="reference internal" href="http://docs.mongodb.org/manual/reference/operator/query/ne/#op._S_ne" title="$ne"><tt class="xref mongodb mongodb-query docutils literal"><span class="pre">$ne</span></tt></a> for more information.</td>
+</tr>
+<tr class="row-even"><td><div class="first last highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">users</span>
+<span class="k">WHERE</span> <span class="n">status</span> <span class="o">=</span> <span class="ss">"A"</span>
+<span class="k">AND</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">50</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first last highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span>
+</span><span class="hll">    <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="s2">"A"</span><span class="p">,</span>
+</span><span class="hll">      <span class="nx">age</span><span class="o">:</span> <span class="mi">50</span> <span class="p">}</span>
+</span><span class="hll"><span class="p">)</span>
+</span></pre></div>
+</div>
+</td>
+<td>See <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.find/#db.collection.find" title="db.collection.find()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">find()</span></tt></a>
+and <a class="reference internal" href="http://docs.mongodb.org/manual/reference/operator/query/and/#op._S_and" title="$and"><tt class="xref mongodb mongodb-query docutils literal"><span class="pre">$and</span></tt></a> for more information.</td>
+</tr>
+<tr class="row-odd"><td><div class="first last highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">users</span>
+<span class="k">WHERE</span> <span class="n">status</span> <span class="o">=</span> <span class="ss">"A"</span>
+<span class="k">OR</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">50</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first last highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span>
+</span><span class="hll">    <span class="p">{</span> <span class="nx">$or</span><span class="o">:</span> <span class="p">[</span> <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="s2">"A"</span> <span class="p">}</span> <span class="p">,</span>
+</span><span class="hll">             <span class="p">{</span> <span class="nx">age</span><span class="o">:</span> <span class="mi">50</span> <span class="p">}</span> <span class="p">]</span> <span class="p">}</span>
+</span><span class="hll"><span class="p">)</span>
+</span></pre></div>
+</div>
+</td>
+<td>See <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.find/#db.collection.find" title="db.collection.find()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">find()</span></tt></a>
+and <a class="reference internal" href="http://docs.mongodb.org/manual/reference/operator/query/or/#op._S_or" title="$or"><tt class="xref mongodb mongodb-query docutils literal"><span class="pre">$or</span></tt></a> for more information.</td>
+</tr>
+<tr class="row-even"><td><div class="first last highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">users</span>
+<span class="k">WHERE</span> <span class="n">age</span> <span class="o">&gt;</span> <span class="mi">25</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first last highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span>
+</span><span class="hll">    <span class="p">{</span> <span class="nx">age</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$gt</span><span class="o">:</span> <span class="mi">25</span> <span class="p">}</span> <span class="p">}</span>
+</span><span class="hll"><span class="p">)</span>
+</span></pre></div>
+</div>
+</td>
+<td>See <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.find/#db.collection.find" title="db.collection.find()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">find()</span></tt></a>
+and <a class="reference internal" href="http://docs.mongodb.org/manual/reference/operator/query/gt/#op._S_gt" title="$gt"><tt class="xref mongodb mongodb-query docutils literal"><span class="pre">$gt</span></tt></a> for more information.</td>
+</tr>
+<tr class="row-odd"><td><div class="first last highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">users</span>
+<span class="k">WHERE</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">25</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first last highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span>
+</span><span class="hll">   <span class="p">{</span> <span class="nx">age</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$lt</span><span class="o">:</span> <span class="mi">25</span> <span class="p">}</span> <span class="p">}</span>
+</span><span class="hll"><span class="p">)</span>
+</span></pre></div>
+</div>
+</td>
+<td>See <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.find/#db.collection.find" title="db.collection.find()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">find()</span></tt></a>
+and <a class="reference internal" href="http://docs.mongodb.org/manual/reference/operator/query/lt/#op._S_lt" title="$lt"><tt class="xref mongodb mongodb-query docutils literal"><span class="pre">$lt</span></tt></a> for more information.</td>
+</tr>
+<tr class="row-even"><td><div class="first last highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">users</span>
+<span class="k">WHERE</span> <span class="n">age</span> <span class="o">&gt;</span> <span class="mi">25</span>
+<span class="k">AND</span>   <span class="n">age</span> <span class="o">&lt;=</span> <span class="mi">50</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first last highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span>
+</span><span class="hll">   <span class="p">{</span> <span class="nx">age</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$gt</span><span class="o">:</span> <span class="mi">25</span><span class="p">,</span> <span class="nx">$lte</span><span class="o">:</span> <span class="mi">50</span> <span class="p">}</span> <span class="p">}</span>
+</span><span class="hll"><span class="p">)</span>
+</span></pre></div>
+</div>
+</td>
+<td>See <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.find/#db.collection.find" title="db.collection.find()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">find()</span></tt></a>,
+<a class="reference internal" href="http://docs.mongodb.org/manual/reference/operator/query/gt/#op._S_gt" title="$gt"><tt class="xref mongodb mongodb-query docutils literal"><span class="pre">$gt</span></tt></a>, and <a class="reference internal" href="http://docs.mongodb.org/manual/reference/operator/query/lte/#op._S_lte" title="$lte"><tt class="xref mongodb mongodb-query docutils literal"><span class="pre">$lte</span></tt></a> for
+more information.</td>
+</tr>
+<tr class="row-odd"><td><div class="first last highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">users</span>
+<span class="k">WHERE</span> <span class="n">user_id</span> <span class="k">like</span> <span class="ss">"%bc%"</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first last highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span>
+</span><span class="hll">   <span class="p">{</span> <span class="nx">user_id</span><span class="o">:</span> <span class="sr">/bc/</span> <span class="p">}</span>
+</span><span class="hll"><span class="p">)</span>
+</span></pre></div>
+</div>
+</td>
+<td>See <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.find/#db.collection.find" title="db.collection.find()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">find()</span></tt></a>
+and <a class="reference internal" href="http://docs.mongodb.org/manual/reference/operator/query/regex/#op._S_regex" title="$regex"><tt class="xref mongodb mongodb-query docutils literal"><span class="pre">$regex</span></tt></a> for more information.</td>
+</tr>
+<tr class="row-even"><td><div class="first last highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">users</span>
+<span class="k">WHERE</span> <span class="n">user_id</span> <span class="k">like</span> <span class="ss">"bc%"</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first last highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span>
+</span><span class="hll">   <span class="p">{</span> <span class="nx">user_id</span><span class="o">:</span> <span class="sr">/^bc/</span> <span class="p">}</span>
+</span><span class="hll"><span class="p">)</span>
+</span></pre></div>
+</div>
+</td>
+<td>See <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.find/#db.collection.find" title="db.collection.find()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">find()</span></tt></a>
+and <a class="reference internal" href="http://docs.mongodb.org/manual/reference/operator/query/regex/#op._S_regex" title="$regex"><tt class="xref mongodb mongodb-query docutils literal"><span class="pre">$regex</span></tt></a> for more information.</td>
+</tr>
+<tr class="row-odd"><td><div class="first last highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">users</span>
+<span class="k">WHERE</span> <span class="n">status</span> <span class="o">=</span> <span class="ss">"A"</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">user_id</span> <span class="k">ASC</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first last highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="s2">"A"</span> <span class="p">}</span> <span class="p">).</span><span class="nx">sort</span><span class="p">(</span> <span class="p">{</span> <span class="nx">user_id</span><span class="o">:</span> <span class="mi">1</span> <span class="p">}</span> <span class="p">)</span>
+</span></pre></div>
+</div>
+</td>
+<td>See <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.find/#db.collection.find" title="db.collection.find()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">find()</span></tt></a>
+and <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/cursor.sort/#cursor.sort" title="cursor.sort()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">sort()</span></tt></a>
+for more information.</td>
+</tr>
+<tr class="row-even"><td><div class="first last highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">users</span>
+<span class="k">WHERE</span> <span class="n">status</span> <span class="o">=</span> <span class="ss">"A"</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">user_id</span> <span class="k">DESC</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first last highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="s2">"A"</span> <span class="p">}</span> <span class="p">).</span><span class="nx">sort</span><span class="p">(</span> <span class="p">{</span> <span class="nx">user_id</span><span class="o">:</span> <span class="o">-</span><span class="mi">1</span> <span class="p">}</span> <span class="p">)</span>
+</span></pre></div>
+</div>
+</td>
+<td>See <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.find/#db.collection.find" title="db.collection.find()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">find()</span></tt></a>
+and <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/cursor.sort/#cursor.sort" title="cursor.sort()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">sort()</span></tt></a>
+for more information.</td>
+</tr>
+<tr class="row-odd"><td><div class="first last highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">users</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">count</span><span class="p">()</span>
+</span></pre></div>
+</div>
+<p><em>or</em></p>
+<div class="last highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">().</span><span class="nx">count</span><span class="p">()</span>
+</span></pre></div>
+</div>
+</td>
+<td>See <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.find/#db.collection.find" title="db.collection.find()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">find()</span></tt></a>
+and <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/cursor.count/#cursor.count" title="cursor.count()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">count()</span></tt></a> for
+more information.</td>
+</tr>
+<tr class="row-even"><td><div class="first last highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">users</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">count</span><span class="p">(</span> <span class="p">{</span> <span class="nx">user_id</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$exists</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span> <span class="p">}</span> <span class="p">)</span>
+</span></pre></div>
+</div>
+<p><em>or</em></p>
+<div class="last highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="nx">user_id</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$exists</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span> <span class="p">}</span> <span class="p">).</span><span class="nx">count</span><span class="p">()</span>
+</span></pre></div>
+</div>
+</td>
+<td>See <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.find/#db.collection.find" title="db.collection.find()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">find()</span></tt></a>,
+<a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/cursor.count/#cursor.count" title="cursor.count()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">count()</span></tt></a>, and
+<a class="reference internal" href="http://docs.mongodb.org/manual/reference/operator/query/exists/#op._S_exists" title="$exists"><tt class="xref mongodb mongodb-query docutils literal"><span class="pre">$exists</span></tt></a> for more information.</td>
+</tr>
+<tr class="row-odd"><td><div class="first last highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">users</span>
+<span class="k">WHERE</span> <span class="n">age</span> <span class="o">&gt;</span> <span class="mi">30</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">count</span><span class="p">(</span> <span class="p">{</span> <span class="nx">age</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$gt</span><span class="o">:</span> <span class="mi">30</span> <span class="p">}</span> <span class="p">}</span> <span class="p">)</span>
+</span></pre></div>
+</div>
+<p><em>or</em></p>
+<div class="last highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="nx">age</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$gt</span><span class="o">:</span> <span class="mi">30</span> <span class="p">}</span> <span class="p">}</span> <span class="p">).</span><span class="nx">count</span><span class="p">()</span>
+</span></pre></div>
+</div>
+</td>
+<td>See <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.find/#db.collection.find" title="db.collection.find()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">find()</span></tt></a>,
+<a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/cursor.count/#cursor.count" title="cursor.count()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">count()</span></tt></a>, and
+<a class="reference internal" href="http://docs.mongodb.org/manual/reference/operator/query/gt/#op._S_gt" title="$gt"><tt class="xref mongodb mongodb-query docutils literal"><span class="pre">$gt</span></tt></a> for more information.</td>
+</tr>
+<tr class="row-even"><td><div class="first last highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="k">DISTINCT</span><span class="p">(</span><span class="n">status</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="n">users</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first last highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">distinct</span><span class="p">(</span> <span class="s2">"status"</span> <span class="p">)</span>
+</span></pre></div>
+</div>
+</td>
+<td>See <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.find/#db.collection.find" title="db.collection.find()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">find()</span></tt></a>
+and <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.distinct/#db.collection.distinct" title="db.collection.distinct()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">distinct()</span></tt></a>
+for more information.</td>
+</tr>
+<tr class="row-odd"><td><div class="first last highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">users</span>
+<span class="k">LIMIT</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">findOne</span><span class="p">()</span>
+</span></pre></div>
+</div>
+<p><em>or</em></p>
+<div class="last highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">().</span><span class="nx">limit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</td>
+<td>See <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.find/#db.collection.find" title="db.collection.find()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">find()</span></tt></a>,
+<a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.findOne/#db.collection.findOne" title="db.collection.findOne()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">findOne()</span></tt></a>,
+and <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/cursor.limit/#cursor.limit" title="cursor.limit()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">limit()</span></tt></a>
+for more information.</td>
+</tr>
+<tr class="row-even"><td><div class="first last highlight-sql"><div class="highlight"><pre><span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">users</span>
+<span class="k">LIMIT</span> <span class="mi">5</span>
+<span class="n">SKIP</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first last highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">().</span><span class="nx">limit</span><span class="p">(</span><span class="mi">5</span><span class="p">).</span><span class="nx">skip</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</td>
+<td>See <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.find/#db.collection.find" title="db.collection.find()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">find()</span></tt></a>,
+<a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/cursor.limit/#cursor.limit" title="cursor.limit()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">limit()</span></tt></a>, and
+<a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/cursor.skip/#cursor.skip" title="cursor.skip()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">skip()</span></tt></a> for
+more information.</td>
+</tr>
+<tr class="row-odd"><td><div class="first last highlight-sql"><div class="highlight"><pre><span class="k">EXPLAIN</span> <span class="k">SELECT</span> <span class="o">*</span>
+<span class="k">FROM</span> <span class="n">users</span>
+<span class="k">WHERE</span> <span class="n">status</span> <span class="o">=</span> <span class="ss">"A"</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first last highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span> <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="s2">"A"</span> <span class="p">}</span> <span class="p">).</span><span class="nx">explain</span><span class="p">()</span>
+</span></pre></div>
+</div>
+</td>
+<td>See <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.find/#db.collection.find" title="db.collection.find()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">find()</span></tt></a>
+and <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/cursor.explain/#cursor.explain" title="cursor.explain()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">explain()</span></tt></a>
+for more information.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="update-records">
+<h3>Update Records<a class="headerlink" href="http://docs.mongodb.org/manual/reference/sql-comparison/#update-records" title="Permalink to this headline">¶</a></h3>
+<p>The following table presents the various SQL statements related to
+updating existing records in tables and the corresponding MongoDB
+statements.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%">
+<col width="33%">
+<col width="33%">
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">SQL Update Statements</th>
+<th class="head">MongoDB update() Statements</th>
+<th class="head">Reference</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><div class="first last highlight-sql"><div class="highlight"><pre><span class="k">UPDATE</span> <span class="n">users</span>
+<span class="k">SET</span> <span class="n">status</span> <span class="o">=</span> <span class="ss">"C"</span>
+<span class="k">WHERE</span> <span class="n">age</span> <span class="o">&gt;</span> <span class="mi">25</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first last highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span>
+</span><span class="hll">   <span class="p">{</span> <span class="nx">age</span><span class="o">:</span> <span class="p">{</span> <span class="nx">$gt</span><span class="o">:</span> <span class="mi">25</span> <span class="p">}</span> <span class="p">},</span>
+</span><span class="hll">   <span class="p">{</span> <span class="nx">$set</span><span class="o">:</span> <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="s2">"C"</span> <span class="p">}</span> <span class="p">},</span>
+</span><span class="hll">   <span class="p">{</span> <span class="nx">multi</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span>
+</span><span class="hll"><span class="p">)</span>
+</span></pre></div>
+</div>
+</td>
+<td>See <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.update/#db.collection.update" title="db.collection.update()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">update()</span></tt></a>,
+<a class="reference internal" href="http://docs.mongodb.org/manual/reference/operator/query/gt/#op._S_gt" title="$gt"><tt class="xref mongodb mongodb-query docutils literal"><span class="pre">$gt</span></tt></a>, and <a class="reference internal" href="http://docs.mongodb.org/manual/reference/operator/update/set/#up._S_set" title="$set"><tt class="xref mongodb mongodb-update docutils literal"><span class="pre">$set</span></tt></a> for more
+information.</td>
+</tr>
+<tr class="row-odd"><td><div class="first last highlight-sql"><div class="highlight"><pre><span class="k">UPDATE</span> <span class="n">users</span>
+<span class="k">SET</span> <span class="n">age</span> <span class="o">=</span> <span class="n">age</span> <span class="o">+</span> <span class="mi">3</span>
+<span class="k">WHERE</span> <span class="n">status</span> <span class="o">=</span> <span class="ss">"A"</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first last highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span>
+</span><span class="hll">   <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="s2">"A"</span> <span class="p">}</span> <span class="p">,</span>
+</span><span class="hll">   <span class="p">{</span> <span class="nx">$inc</span><span class="o">:</span> <span class="p">{</span> <span class="nx">age</span><span class="o">:</span> <span class="mi">3</span> <span class="p">}</span> <span class="p">},</span>
+</span><span class="hll">   <span class="p">{</span> <span class="nx">multi</span><span class="o">:</span> <span class="kc">true</span> <span class="p">}</span>
+</span><span class="hll"><span class="p">)</span>
+</span></pre></div>
+</div>
+</td>
+<td>See <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.update/#db.collection.update" title="db.collection.update()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">update()</span></tt></a>,
+<a class="reference internal" href="http://docs.mongodb.org/manual/reference/operator/update/inc/#up._S_inc" title="$inc"><tt class="xref mongodb mongodb-update docutils literal"><span class="pre">$inc</span></tt></a>, and <a class="reference internal" href="http://docs.mongodb.org/manual/reference/operator/update/set/#up._S_set" title="$set"><tt class="xref mongodb mongodb-update docutils literal"><span class="pre">$set</span></tt></a> for more
+information.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="delete-records">
+<h3>Delete Records<a class="headerlink" href="http://docs.mongodb.org/manual/reference/sql-comparison/#delete-records" title="Permalink to this headline">¶</a></h3>
+<p>The following table presents the various SQL statements related to
+deleting records from tables and the corresponding MongoDB statements.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%">
+<col width="33%">
+<col width="33%">
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">SQL Delete Statements</th>
+<th class="head">MongoDB remove() Statements</th>
+<th class="head">Reference</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><div class="first last highlight-sql"><div class="highlight"><pre><span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">users</span>
+<span class="k">WHERE</span> <span class="n">status</span> <span class="o">=</span> <span class="ss">"D"</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first last highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span> <span class="p">{</span> <span class="nx">status</span><span class="o">:</span> <span class="s2">"D"</span> <span class="p">}</span> <span class="p">)</span>
+</span></pre></div>
+</div>
+</td>
+<td>See <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.remove/#db.collection.remove" title="db.collection.remove()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">remove()</span></tt></a>
+for more information.</td>
+</tr>
+<tr class="row-odd"><td><div class="first last highlight-sql"><div class="highlight"><pre><span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">users</span>
+</pre></div>
+</div>
+</td>
+<td><div class="first last highlight-javascript"><div class="highlight"><pre><span class="hll"><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">remove</span><span class="p">(</span> <span class="p">)</span>
+</span></pre></div>
+</div>
+</td>
+<td>See <a class="reference internal" href="http://docs.mongodb.org/manual/reference/method/db.collection.remove/#db.collection.remove" title="db.collection.remove()"><tt class="xref mongodb mongodb-method docutils literal"><span class="pre">remove()</span></tt></a>
+for more information.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+              
+    <div id="btnv">
+      <span class="btn-arrow-left">← &nbsp;</span>
+      <a class="btn-prev-text" href="http://docs.mongodb.org/manual/reference/write-concern/" title="Previous Section: Write Concern Reference"><span>Write Concern Reference</span></a>
+      <a class="btn-next-text" href="http://docs.mongodb.org/manual/reference/bios-example-collection/" title="Next Section: The bios Example Collection"><span>The bios Example Collection</span></a>
+      <span class="btn-arrow-right">&nbsp;→</span>
+    </div></div></div>
+          </div>
+        <div class="clearer"></div>
+      </div><div class="footer row">
+  <div class="box col-md-12">
+    <div class="row">
+      <div class="col-xs-6 col-sm-3 section-0"><h3><a href="http://www.mongodb.org/about/">About MongoDB</a></h3>
+<ul>
+  <li><a href="http://www.mongodb.org/about/introduction">Introduction</a></li>
+  <li><a href="http://www.mongodb.org/about/community">User Community</a></li>
+  <li><a href="http://mongodb.org/about/community/masters">MongoDB Masters</a></li>
+  <li><a href="http://planet.mongodb.org/">Planet MongoDB</a></li>
+</ul>
+      </div>
+      <div class="col-xs-6 col-sm-3 section-1"><h3>MongoDB Resources</h3>
+<ul>
+  <li><a href="http://www.mongodb.org/downloads">Downloads</a></li>
+  <li><a href="http://www.mongodb.com/events">MongoDB Events</a></li>
+  <li><a href="http://www.mongodb.com/presentations">Slides and Video</a></li>
+  <li><a href="http://www.mongodb.com/products/mms/">MongoDB Management Service</a> (<a href="http://mms.mongodb.com/help/">docs</a>)</li>
+</ul>
+      </div>
+      <div class="col-xs-6 col-sm-3 section-2"><h3><a href="http://docs.mongodb.org/ecosystem/">MongoDB Ecosystem</a></h3>
+<ul>
+    <li><a href="http://docs.mongodb.org/ecosystem/drivers/">Drivers and Client libraries</a>
+    </li><li><a href="http://docs.mongodb.org/ecosystem/tools/">Tools and Integration</a></li>
+    <li><a href="http://docs.mongodb.org/ecosystem/platforms/">Platform Integration</a></li>
+    <li><a href="http://docs.mongodb.org/ecosystem/use-cases/">Use Cases</a></li>
+</ul>
+      </div>
+      <div class="col-xs-6 col-sm-3 section-3"><h3><a href="http://docs.mongodb.org/ecosystem/drivers/">MongoDB Drivers</a></h3>
+<ul>
+    <li><a href="http://docs.mongodb.org/ecosystem/drivers/c">C</a> (<a href="http://api.mongodb.org/c/current/">docs</a>)</li>
+    <li><a href="http://docs.mongodb.org/ecosystem/drivers/cpp">C++</a> (<a href="http://api.mongodb.org/cplusplus/current/">docs</a>)</li>
+    <li><a href="http://docs.mongodb.org/ecosystem/drivers/csharp">C#</a> (<a href="http://api.mongodb.org/csharp/current/">docs</a>)</li>
+    <li><a href="http://docs.mongodb.org/ecosystem/drivers/erlang">Erlang</a> (<a href="http://api.mongodb.org/erlang">docs</a>)</li>
+    <li><a href="http://hackage.haskell.org/package/mongoDB">Haskell</a> (<a href="http://api.mongodb.org/haskell">docs</a>)</li>
+    <li><a href="http://docs.mongodb.org/ecosystem/drivers/java">Java</a> (<a href="http://api.mongodb.org/java/current">docs</a>)</li>
+    <li><a href="http://docs.mongodb.org/ecosystem/drivers/javascript">JavaScript</a> (<a href="http://api.mongodb.org/js/current">docs</a>)</li>
+    <li><a href="http://docs.mongodb.org/ecosystem/drivers/perl">Perl</a> (<a href="https://metacpan.org/module/MongoDB">docs</a>)</li>
+    <li><a href="http://docs.mongodb.org/ecosystem/drivers/php">PHP</a> (<a href="http://php.net/mongo/">docs</a>)</li>
+    <li><a href="http://docs.mongodb.org/ecosystem/drivers/python">Python</a> (<a href="http://api.mongodb.org/python/current">docs</a>)</li>
+    <li><a href="http://docs.mongodb.org/ecosystem/drivers/ruby">Ruby</a> (<a href="http://api.mongodb.org/ruby/current">docs</a>)</li>
+    <li><a href="http://docs.mongodb.org/ecosystem/drivers/scala">Scala</a> (<a href="http://api.mongodb.org/scala/casbah/current/">docs</a>)</li>
+</ul>
+      </div>
+  </div>
+</div>
+
+      <div class="copyright col-xs-10">
+        <p>Copyright © 2013 <a class="smalltext" href="http://www.mongodb.com/">MongoDB, Inc</a>. Licensed under <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons</a>. MongoDB, Mongo, and the leaf logo are registered trademarks of MongoDB, Inc.</p>
+      </div>
+      <div class="col-xs-2">
+        <div class="social">
+          <a class="twitter-icon" href="https://twitter.com/mongodbinc"><div class="img"></div></a>
+          <a class="youtube-icon" href="http://www.youtube.com/user/MongoDB"><div class="img"></div></a>
+          <a class="facebook-icon" href="https://www.facebook.com/mongodb"><div class="img"></div></a>
+          <a class="gplus-icon" href="https://plus.google.com/u/1/101024085748034940765/posts?cfem=1"><div class="img"></div></a>
+        </div>
+      </div>
+  </div><script type="text/javascript">
+var _gaq = _gaq || [];
+var pluginUrl = (('https:' == document.location.protocol) ? 'https://ssl.' : 'http://www.') + 'google-analytics.com/plugins/ga/inpage_linkid.js';
+_gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+_gaq.push(['_setAccount', 'UA-7301842-8']);
+_gaq.push(['_setDomainName', 'docs.mongodb.org']);
+_gaq.push(['_trackPageview']);
+(function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+        })();
+</script>
+
+<script type="text/javascript">var _kiq = _kiq || [];</script>
+<script type="text/javascript">
+(function(){
+setTimeout(function(){ var d = document, f = d.getElementsByTagName('script')[0], s = d.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = '//s3.amazonaws.com/ki.js/49119/a7n.js'; f.parentNode.insertBefore(s, f); }, 1);
+})();
+</script>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-7301842-14', 'mongodb.org');
+ga('send', 'pageview');
+</script>
+
+<script type="text/javascript">
+document.write(unescape("%3Cscript src='" + document.location.protocol + "//munchkin.marketo.net/munchkin.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="./SQL to MongoDB Mapping Chart — MongoDB Manual 2.4.8_files/munchkin.js" type="text/javascript"></script>
+<script>try { mktoMunchkin("017-HGS-593"); } catch(e) {}</script><script type="text/javascript">
+jQuery.ajax({
+	 url: "https://jira.mongodb.org/s/en_UScn8g8x/782/6/1.2.5/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector-embededjs/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector-embededjs.js?collectorId=298ba4e7",
+	 type: "get",
+	 cache: true,
+	 dataType: "script"
+	});
+window.ATL_JQ_PAGE_PROPS =  {
+	"triggerFunction": function(showCollectorDialog) {
+		jQuery("#jirafeedback").click(function(e) {e.preventDefault();showCollectorDialog();});},
+		fieldValues: {component: 'mongodb-manual', summary: 'Comment on: "manual/reference/sql-comparison.txt"'},
+		environment: {'repo': 'docs','source': 'reference/sql-comparison'}
+		};
+</script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+    var pagename = 'reference/sql-comparison';
+    $("#vn select").bind('change', function(e) {
+      var pn = pagename;
+      if (pagename == 'index') {
+        pn = '';
+      }
+
+      var base = $(e.currentTarget).find('option:selected').data('path');
+      window.location.href = '/' + base + '/' + pn + '/';
+    });
+  });
+  </script>
+</div><table cellspacing="0" cellpadding="0" class="gstl_50 gssb_c" style="width: 18px; display: none; top: 68px; left: 1132px; position: absolute;"><tbody><tr><td class="gssb_f"></td><td class="gssb_e" style="width: 100%;"></td></tr></tbody></table><div id="atlwdg-blanket" class="atlwdg-blanket" style="display: none;"></div><div id="atlwdg-container" class="atlwdg-popup atlwdg-box-shadow atlwdg-hidden"></div></body></html>
